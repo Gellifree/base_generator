@@ -18,7 +18,7 @@ then
 elif [ $1 == "c#" ];
 then
 	echo -e $csharp > program.cs
-elif [ $1 == "vala"];
+elif [ $1 == "vala" ];
 then
 	mkdir valaproject
 	echo -e $vala > valaproject/hello.vala
@@ -30,3 +30,4 @@ then
 	echo "script base" > web/main.js
 	echo "change-this.surge.sh" > web/CNAME
 fi
+
