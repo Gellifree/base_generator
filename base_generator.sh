@@ -4,6 +4,8 @@ java='public class Main {\n\t public static void main(String[] args) {\n\t \t Sy
 
 csharp='namespace HelloWorld\n{\n\t class Hello{\n\t \t static void Main(string[] args)\n\t \t {\n\t \t \t System.Console.WriteLine("Helló Világ!");\n\t \t }\n\t }\n}'
 
+vala='class Demo.HelloWorld : Glib.Object {\n\n\tpublic static int main(string[] args) {\n\n\t\tstdout.printf("Hello, World!");\n\n\t\treturn 0;\n\t}\n}'
+
 html='<!doctype html>\n<html lang="hu" dir="ltr">\n\t<head>\n\t\t<meta charset="utf-8">\n\t\t<link rel="stylesheet" href="master.css">\n\t\t<title>Weboldal</title>\n\t</head>\n\t<body>\n\n\t</body>\n</html>'
 master='body{\n\tbackground-color: red\n}'
 
@@ -16,6 +18,10 @@ then
 elif [ $1 == "c#" ];
 then
 	echo -e $csharp > program.cs
+elif [ $1 == "vala"];
+then
+	mkdir valaproject
+	echo -e $vala > valaproject/hello.vala
 elif [ $1 == "web" ];
 then
 	mkdir web
