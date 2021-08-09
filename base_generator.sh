@@ -12,6 +12,7 @@ html='<!doctype html>\n<html lang="hu" dir="ltr">\n\t<head>\n\t\t<meta charset="
 master='body{\n\tbackground-color: red\n}'
 CNAME='change-this.surge.sh'
 
+
 python='def main():\n\tprint("Helló Világ!")\n\nif __name__ == "__main__":\n\tmain()'
 
 
