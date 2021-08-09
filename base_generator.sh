@@ -14,6 +14,8 @@ CNAME='change-this.surge.sh'
 
 python='def main():\n\tprint("Helló Világ!")\n\nif __name__ == "__main__":\n\tmain()'
 
+latex='\documentclass[a4paper,12pt]{article}\n\usepackage[T1]{fontenc}\n\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}\n\usepackage[magyar]{babel}\n\\begin{document}\n\tÉkezetes szöveg.\n\\end{document}'
+
 if [ $1 == "python" ];
 then
 	mkdir python
@@ -34,6 +36,10 @@ elif [ $1 == "vala" ];
 then
 	mkdir valaproject
 	echo -e $vala > valaproject/hello.vala
+elif [ $1 == "latex" ];
+then
+	mkdir latex
+	echo -e $latex > latex/document.tex
 elif [ $1 == "web" ];
 then
 	mkdir web
