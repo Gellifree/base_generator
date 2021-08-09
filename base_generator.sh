@@ -14,6 +14,7 @@ CNAME='change-this.surge.sh'
 
 python='def main():\n\tprint("Helló Világ!")\n\nif __name__ == "__main__":\n\tmain()'
 
+
 latex='\documentclass[a4paper,12pt]{article}\n\usepackage[T1]{fontenc}\n\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}\n\usepackage[magyar]{babel}\n\\begin{document}\n\tÉkezetes szöveg.\n\\end{document}'
 
 if [ $1 == "python" ];
