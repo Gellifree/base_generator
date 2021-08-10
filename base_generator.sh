@@ -1,10 +1,14 @@
 #!/bin/bash
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2021 Kovács Norbert <mfw.kovacs.norbert@gmail.com>
+#
 
-java='public class Main {\n\t public static void main(String[] args) {\n\t \t System.out.println("Helló világ!\\n");\n\t	}\n}'
+java='public class Main {\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println("Helló világ!\\n");\n\t}\n}'
 
 csharp='namespace HelloWorld\n{\n\t class Hello{\n\t \t static void Main(string[] args)\n\t \t {\n\t \t \t System.Console.WriteLine("Helló Világ!");\n\t \t }\n\t }\n}'
 
-vala='class Demo.HelloWorld : Glib.Object {\n\n\tpublic static int main(string[] args) {\n\n\t\tstdout.printf("Hello, World!\\n");\n\n\t\treturn 0;\n\t}\n}'
+vala='public static int main(string[] args) {\n\n\tstdout.printf("Hello, World!\\n");\n\n\treturn 0;\n}'
 
 cpp='#include <iostream>\n\nint main(void)\n{\n\tstd::cout << "Helló Világ!\\n";\n}'
 
@@ -15,30 +19,53 @@ CNAME='change-this.surge.sh'
 
 python='def main():\n\tprint("Helló Világ!")\n\nif __name__ == "__main__":\n\tmain()'
 
-if [ $1 == "python" ];
+latex='\documentclass[a4paper,12pt]{article}\n\usepackage[T1]{fontenc}\n\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}\n\usepackage[magyar]{babel}\n\\begin{document}\n\tÉkezetes szöveg.\n\\end{document}'
+
+if [ -z "$2" ];
 then
-	mkdir python
-	echo -e $python > python/main.py
+	#echo "second param is empty"
+	projectname=$1
+else
+	#echo "second param is not empty"
+	projectname=$2
+fi
+
+#echo $projectname
+
+if [ -z "$1" ];
+then 
+	echo "Error: No specified project was given!"
+elif [ $1 == "null" ];
+then
+	echo "Error: project type can't be null!"
+elif [ $1 == "python" ];
+then
+	mkdir $projectname
+	echo -e $python > $projectname/main.py
 elif [ $1 == "java" ];
 then
-	mkdir java
-	echo -e $java  > java/Main.java
-elif [ $1 == "c#" ];
+	mkdir $projectname
+	echo -e $java  > $projectname/Main.java
+elif [ $1 == "csharp" ];
 then
-	mkdir csharp
-	echo -e $csharp > csharp/program.cs
+	mkdir $projectname
+	echo -e $csharp > $projectname/program.cs
 elif [ $1 == "cpp" ];
 then
-	mkdir cpp-proj
-	echo -e $cpp > cpp-proj/main.cpp
+	mkdir $projectname
+	echo -e $cpp > $projectname/main.cpp
 elif [ $1 == "vala" ];
 then
-	mkdir valaproject
-	echo -e $vala > valaproject/hello.vala
+	mkdir $projectname
+	echo -e $vala > $projectname/hello.vala
+elif [ $1 == "latex" ];
+then
+	mkdir $projectname
+	echo -e $latex > $projectname/document.tex
 elif [ $1 == "web" ];
 then
-	mkdir web
-	echo -e $html > web/index.html
-	echo -e $master > web/master.css
-	echo $CNAME > web/CNAME
+	mkdir $projectname
+	echo -e $html > $projectname/index.html
+	echo -e $master > $projectname/master.css
+	echo $CNAME > $projectname/CNAME
 fi
