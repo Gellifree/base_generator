@@ -17,7 +17,7 @@ master='body{\n\tbackground-color: red\n}'
 CNAME='change-this.surge.sh'
 
 
-python='def main():\n\tprint("Helló Világ!")\n\nif __name__ == "__main__":\n\tmain()'
+python='#!/usr/bin/python3\n\ndef main():\n\tprint("Helló Világ!")\n\nif __name__ == "__main__":\n\tmain()'
 
 latex='\documentclass[a4paper,12pt]{article}\n\usepackage[T1]{fontenc}\n\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}\n\usepackage[magyar]{babel}\n\\begin{document}\n\tÉkezetes szöveg.\n\\end{document}'
 
@@ -33,7 +33,7 @@ fi
 #echo $projectname
 
 if [ -z "$1" ];
-then 
+then
 	echo "Error: No specified project was given!"
 elif [ $1 == "null" ];
 then
@@ -42,6 +42,7 @@ elif [ $1 == "python" ];
 then
 	mkdir $projectname
 	echo -e $python > $projectname/main.py
+	chmod +x $projectname/main.py
 elif [ $1 == "java" ];
 then
 	mkdir $projectname
