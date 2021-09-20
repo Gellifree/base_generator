@@ -75,4 +75,8 @@ then
 	echo -e $html > $projectname/index.html
 	echo -e $master > $projectname/master.css
 	echo $CNAME > $projectname/CNAME
+else
+	echo "Error: Project type is not found."
+	echo -e "Available projects:\n"
+	echo -e "Java \tCsharp \tcpp \tc \thtml \tpython \tlatex"
 fi
