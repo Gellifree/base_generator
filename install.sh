@@ -12,7 +12,7 @@ then
 	cp base_generator.sh ~/bin/base_generator.sh
 else
 	mkdir ~/bin
-	cp base_generator.sh ~/bin/base_generator.sh
+	cp base_generator.sh ~/bin/base_generator
 	echo "To finnish the installation, please restart."
 fi
 
