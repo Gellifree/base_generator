@@ -9,7 +9,7 @@ dir="$HOME/bin"
 
 if [ -d "$dir" ]
 then
-	cp base_generator.sh ~/bin/base_generator.sh
+	cp base_generator.sh ~/bin/base_generator
 else
 	mkdir ~/bin
 	cp base_generator.sh ~/bin/base_generator
