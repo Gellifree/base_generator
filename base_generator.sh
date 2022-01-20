@@ -6,10 +6,6 @@
 
 java='public class Main {\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println("Helló világ!\\n");\n\t}\n}'
 
-csharp='using System;\n\nnamespace HelloWorld\n{\n\t class Hello{\n\t \t static void Main(string[] args)\n\t \t {\n\t \t \t Console.WriteLine("Helló Világ!");\n\t \t }\n\t }\n}'
-
-vala='public static int main(string[] args) {\n\n\tstdout.printf("Hello, World!\\n");\n\n\treturn 0;\n}'
-
 cpp='#include <iostream>\n\nint main(void)\n{\n\tstd::cout << "Helló Világ!\\n";\n}'
 
 c='#include <stdio.h>\n\nint main(){\n\tprintf("Helló Világ!\\n");\n\treturn 0;\n}'
@@ -36,7 +32,7 @@ fi
 
 if [ -z "$1" ];
 then
-	echo "Error: No specified project was given!"
+	echo "Error: No specified project was given! Please specify a project type [java,cpp,c,web,python,latex]"
 elif [ $1 == "null" ];
 then
 	echo "Error: project type can't be null!"
@@ -51,8 +47,7 @@ then
 	echo -e $java  > $projectname/Main.java
 elif [ $1 == "csharp" ];
 then
-	mkdir $projectname
-	echo -e $csharp > $projectname/program.cs
+	echo "C# is no longer supported, please use dotnet-sdk instead."
 elif [ $1 == "cpp" ];
 then
 	mkdir $projectname
@@ -61,10 +56,6 @@ elif [ $1 == 'c' ];
 then
 	mkdir $projectname
 	echo -e $c > $projectname/main.c
-elif [ $1 == "vala" ];
-then
-	mkdir $projectname
-	echo -e $vala > $projectname/hello.vala
 elif [ $1 == "latex" ];
 then
 	mkdir $projectname
@@ -78,5 +69,5 @@ then
 else
 	echo "Error: Project type is not found."
 	echo -e "Available projects:\n"
-	echo -e "Java \tCsharp \tcpp \tc \thtml \tpython \tlatex"
+	echo -e "Java \tcpp(c++) \tc \thtml \tpython \tlatex"
 fi

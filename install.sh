@@ -4,15 +4,15 @@
 # SPDX-FileCopyrightText: 2021 Kovács Norbert <mfw.kovacs.norbert@gmail.com>
 #
 
-dir="$HOME/bin"
+dir="/usr/bin"
 
 
 if [ -d "$dir" ]
 then
-	cp base_generator.sh ~/bin/base_generator
+	cp base_generator.sh /usr/bin/base_generator
 else
-	mkdir ~/bin
-	cp base_generator.sh ~/bin/base_generator
+	mkdir /usr/bin
+	cp base_generator.sh /usr/bin/base_generator
 	echo "To finnish the installation, please restart."
 fi
 
