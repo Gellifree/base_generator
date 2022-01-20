@@ -9,6 +9,8 @@ java='public class Main {\n\tpublic static void main(String[] args) {\n\t\tSyste
 cpp='#include <iostream>\n\nint main(void)\n{\n\tstd::cout << "Helló Világ!\\n";\n}'
 
 c='#include <stdio.h>\n\nint main(){\n\tprintf("Helló Világ!\\n");\n\treturn 0;\n}'
+c_header_h='#ifndef CHANGE_ME\n#define CHANGE_ME\n\nvoid example_function(int example_param);\n\n#endif'
+c_header_c='#include <stdio.h>\n\nvoid example_function(int example_param)\n{\n\tprintf("Hello from header!\\n");\n}'
 
 html='<!doctype html>\n<html lang="hu" dir="ltr">\n\t<head>\n\t\t<meta charset="utf-8">\n\t\t<link rel="stylesheet" href="master.css">\n\t\t<title>Weboldal</title>\n\t</head>\n\t<body>\n\n\t</body>\n</html>'
 master='body{\n\tbackground-color: red\n}'
@@ -56,6 +58,10 @@ elif [ $1 == 'c' ];
 then
 	mkdir $projectname
 	echo -e $c > $projectname/main.c
+elif [ $1 == 'c-header' ];
+then
+	echo -e $c_header_h > $projectname.h
+	echo -e $c_header_c > $projectname.c
 elif [ $1 == "latex" ];
 then
 	mkdir $projectname
