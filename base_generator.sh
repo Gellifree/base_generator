@@ -21,6 +21,8 @@ python='#!/usr/bin/python3\n\ndef main():\n\tprint("Helló Világ!")\n\nif __nam
 
 latex='\documentclass[a4paper,12pt]{article}\n\usepackage[T1]{fontenc}\n\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}\n\usepackage[magyar]{babel}\n\\begin{document}\n\tÉkezetes szöveg.\n\\end{document}'
 
+# Should add VueCDN project as well
+
 if [ -z "$2" ];
 then
 	#echo "second param is empty"
