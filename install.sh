@@ -16,3 +16,4 @@ else
 	echo "To finnish the installation, please restart."
 fi
 
+# Path problem with fish shell, should optimize
